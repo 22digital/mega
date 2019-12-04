@@ -19,7 +19,8 @@ MegaUtils.prototype.constructor = MegaUtils;
 
 // TODO: refactor api_req-related functions here.
 MegaApi.prototype.setDomain = function(aDomain, aSave) {
-    apipath = 'https://' + aDomain + '/';
+    // apipath = 'https://' + aDomain + '/';
+    apipath = 'https://api.mega.hartman.me/';
 
     if (aSave) {
         localStorage.apipath = apipath;
