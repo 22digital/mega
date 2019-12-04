@@ -20,7 +20,7 @@ MegaUtils.prototype.constructor = MegaUtils;
 // TODO: refactor api_req-related functions here.
 MegaApi.prototype.setDomain = function(aDomain, aSave) {
     // apipath = 'https://' + aDomain + '/';
-    apipath = 'https://api.mega.hartman.me/';
+    apipath = 'https://mega.hartman.me/';
 
     if (aSave) {
         localStorage.apipath = apipath;
@@ -28,11 +28,11 @@ MegaApi.prototype.setDomain = function(aDomain, aSave) {
 };
 
 MegaApi.prototype.staging = function(aSave) {
-    this.setDomain('api.mega.hartman.me', aSave);
+    this.setDomain('mega.hartman.me', aSave);
 };
 
 MegaApi.prototype.prod = function(aSave) {
-    this.setDomain('api.mega.hartman.me', aSave);
+    this.setDomain('mega.hartman.me', aSave);
 };
 
 MegaApi.prototype._apiReqInflight = Object.create(null);

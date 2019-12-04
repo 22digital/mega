@@ -323,7 +323,7 @@ var pro = {
                 }
 
                 // If in development and on staging, add some extra info for seeing which provider E.g. ECP/Sabadell/AP
-                if (d && (apipath === 'https://api.mega.hartman.me/')) {
+                if (d && (apipath === 'https://mega.hartman.me/')) {
                     gateways[gatewayId].displayName += ' (via ' + gateways[gatewayId].name + ')';
                 }
             }
