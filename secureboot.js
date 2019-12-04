@@ -461,7 +461,7 @@ if (!browserUpdate) try
     }
 
     staticpath = staticpath || geoStaticPath();
-    apipath = localStorage.apipath || 'http://api.mega.hartman.me/';
+    apipath = localStorage.apipath || 'https://api.mega.hartman.me/';
 
     // If dark mode flag is enabled, change styling
     if (localStorage.getItem('darkMode') === '1') {
