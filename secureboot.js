@@ -14,7 +14,7 @@ var lastactive = new Date().getTime();
 var URL = window.URL || window.webkitURL;
 var seqno = Math.ceil(Math.random()*1000000000);
 var staticpath = null;
-var defaultStaticPath = 'https://eu.static.mega.co.nz/3/'; // EU should never fail. EU is the mothership.
+var defaultStaticPath = 'https://mega.hartman.me/3/'; // EU should never fail. EU is the mothership.
 var ua = window.navigator.userAgent.toLowerCase();
 var uv = window.navigator.appVersion.toLowerCase();
 var storage_version = '1'; // clear localStorage when version doesn't match
@@ -176,15 +176,15 @@ function geoStaticPath() {
             var cookieMatch = String(document.cookie).match(/geoip\s*\=\s*([A-Z]{2})/);
 
             // Check the country code to return a closer static server
-            if (cookieMatch && cookieMatch[1] && singaporeStaticCountries.indexOf(cookieMatch[1]) > -1) {
-                return 'https://sg.static.mega.co.nz/3/';
-            }
-            else if (cookieMatch && cookieMatch[1] && northAmericaStaticCountries.indexOf(cookieMatch[1]) > -1) {
-                return 'https://na.static.mega.co.nz/3/';
-            }
-            else if (cookieMatch && cookieMatch[1] && newZealandStaticCountries.indexOf(cookieMatch[1]) > -1) {
-                return 'https://nz.static.mega.co.nz/3/';
-            }
+            // if (cookieMatch && cookieMatch[1] && singaporeStaticCountries.indexOf(cookieMatch[1]) > -1) {
+            //     return 'https://sg.static.mega.co.nz/3/';
+            // }
+            // else if (cookieMatch && cookieMatch[1] && northAmericaStaticCountries.indexOf(cookieMatch[1]) > -1) {
+            //     return 'https://na.static.mega.co.nz/3/';
+            // }
+            // else if (cookieMatch && cookieMatch[1] && newZealandStaticCountries.indexOf(cookieMatch[1]) > -1) {
+            //     return 'https://nz.static.mega.co.nz/3/';
+            // }
         }
     }
     catch(ex) {
@@ -349,6 +349,17 @@ if (!browserUpdate) try
         jj = localStorage.jj;
         dd = localStorage.dd;
 
+        /**
+         * Add some custom dev localStorage settings.
+         */
+        // Enables vanilla console logging.
+        localStorage.d = 1;
+        // Enables full console logging via MegaLogger.
+        localStorage.minLogLevel = 0;
+        // Allows you to disable the context menu in the FM for element inspection.
+        localStorage.contextmenu = 1;
+
+
         // Write test
         localStorage['$!--foo'] = Array(100).join(",");
         delete localStorage['$!--foo'];
@@ -450,7 +461,7 @@ if (!browserUpdate) try
     }
 
     staticpath = staticpath || geoStaticPath();
-    apipath = localStorage.apipath || 'https://g.api.mega.co.nz/';
+    apipath = localStorage.apipath || 'http://api.mega.hartman.me/';
 
     // If dark mode flag is enabled, change styling
     if (localStorage.getItem('darkMode') === '1') {

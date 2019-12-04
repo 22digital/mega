@@ -27,11 +27,11 @@ MegaApi.prototype.setDomain = function(aDomain, aSave) {
 };
 
 MegaApi.prototype.staging = function(aSave) {
-    this.setDomain('staging.api.mega.co.nz', aSave);
+    this.setDomain('api.mega.hartman.me', aSave);
 };
 
 MegaApi.prototype.prod = function(aSave) {
-    this.setDomain('eu.api.mega.co.nz', aSave);
+    this.setDomain('api.mega.hartman.me', aSave);
 };
 
 MegaApi.prototype._apiReqInflight = Object.create(null);
@@ -1353,7 +1353,7 @@ MegaUtils.prototype.checkForDuplication = function(id) {
 };
 
 /**
- * Handle a redirect from the mega.co.nz/#pro page to mega.nz/#pro page
+ * Handle a redirect from the mega.hartman.me/#pro page to mega.nz/#pro page
  * and keep the user logged in at the same time
  *
  * @param {String} [data] optional data to decode
@@ -1379,7 +1379,7 @@ MegaUtils.prototype.transferFromMegaCoNz = function(data) {
 
         if (urlParts) {
 
-            api_req({a: 'log', e: 99804, m: 'User tries to transfer a session from mega.co.nz.'});
+            api_req({a: 'log', e: 99804, m: 'User tries to transfer a session from mega.hartman.me.'});
 
             var toPage = String(urlParts[2] || 'fm').replace('#', '');
             // If the user is already logged in here with the same account
@@ -1440,7 +1440,7 @@ MegaUtils.prototype.transferFromMegaCoNz = function(data) {
                     });
             };
 
-            // Performs a regular login as part of the transfer from mega.co.nz
+            // Performs a regular login as part of the transfer from mega.hartman.me
             _rawXHR(apipath + 'cs?id=0&sid=' + u_sid, {'a': 'ug'}, function(data) {
                 var ctx = {
                     checkloginresult: function(ctx, result) {
